@@ -10,7 +10,7 @@ class Board(numRows : Int, numCols : Int) {
 
         for (i in 0..(numRows - 1)) {
             rows[i] = Array<BoxData>(numCols){
-                BoxData(20, false)
+                BoxData(Emoji.LION, false)
             }
         }
     }
