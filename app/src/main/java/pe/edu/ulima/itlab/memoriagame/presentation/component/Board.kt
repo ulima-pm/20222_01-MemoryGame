@@ -6,11 +6,27 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 
 @Composable
-fun Board() {
+fun Board(
+    numRows : Int,
+    numCols : Int,
+    boxOnClick : (Int, Int) -> Unit
+) {
     Column(
         modifier = Modifier.fillMaxWidth()
     ) {
-        BoardRow()
-        BoardRow()
+        (0 until numRows).mapIndexed { index, _ ->
+            BoardRow(
+                numCols = numCols,
+                modifier = Modifier.weight(1f),
+                onClick = boxOnClick,
+                row = index
+            )
+        }
     }
 }
+
+
+
+
+
+

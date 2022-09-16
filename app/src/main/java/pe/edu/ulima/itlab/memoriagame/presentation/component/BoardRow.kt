@@ -7,24 +7,24 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun BoardRow() {
+fun BoardRow(
+    numCols : Int,
+    row : Int,
+    modifier : Modifier,
+    onClick : (Int, Int) -> Unit
+) {
     Row(
-        modifier = Modifier.fillMaxWidth()
+        modifier = modifier.fillMaxWidth()
             .padding(top = 8.dp, bottom = 8.dp)
     ) {
-        BoardBox(
-            modifier = Modifier.weight(1f)
-                .height(100.dp)
-        )
-        BoardBox(
-            modifier = Modifier.weight(1f)
-                .height(100.dp)
-        )
+        (0 until numCols).mapIndexed { index, _ ->
+            BoardBox(
+                modifier = Modifier.weight(1f)
+                    .fillMaxHeight(),
+                onClick = onClick,
+                row = row,
+                col = index
+            )
+        }
     }
-}
-
-@Composable
-@Preview(showBackground = true)
-fun ShowBoardRow() {
-    BoardRow()
 }
