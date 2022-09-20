@@ -4,11 +4,13 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import pe.edu.ulima.itlab.memoriagame.model.BoxData
 
 @Composable
 fun Board(
     numRows : Int,
     numCols : Int,
+    rowsData : Array<Array<BoxData>>,
     boxOnClick : (Int, Int) -> Unit
 ) {
     Column(
@@ -19,7 +21,8 @@ fun Board(
                 numCols = numCols,
                 modifier = Modifier.weight(1f),
                 onClick = boxOnClick,
-                row = index
+                row = index,
+                listBoxData = rowsData[index]
             )
         }
     }

@@ -19,7 +19,7 @@ class BoardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            BoardScreen()
+            BoardScreen(4, 6)
         }
     }
 }

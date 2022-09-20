@@ -5,12 +5,14 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import pe.edu.ulima.itlab.memoriagame.model.BoxData
 
 @Composable
 fun BoardRow(
     numCols : Int,
     row : Int,
     modifier : Modifier,
+    listBoxData : Array<BoxData>,
     onClick : (Int, Int) -> Unit
 ) {
     Row(
@@ -23,7 +25,8 @@ fun BoardRow(
                     .fillMaxHeight(),
                 onClick = onClick,
                 row = row,
-                col = index
+                col = index,
+                boxData = listBoxData[index]
             )
         }
     }
