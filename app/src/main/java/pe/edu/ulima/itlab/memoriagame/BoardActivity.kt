@@ -13,6 +13,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import pe.edu.ulima.itlab.memoriagame.presentation.screen.BoardScreen
+import pe.edu.ulima.itlab.memoriagame.presentation.screen.MainNavScreen
 import pe.edu.ulima.itlab.memoriagame.presentation.screen.SettingsScreen
 import pe.edu.ulima.itlab.memoriagame.ui.theme.MemoriaGameTheme
 
@@ -20,8 +21,7 @@ class BoardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
-            //BoardScreen(4, 6)
-            SettingsScreen()
+            MainNavScreen()
         }
     }
 }

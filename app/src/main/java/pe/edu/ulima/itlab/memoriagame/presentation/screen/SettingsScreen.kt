@@ -8,7 +8,9 @@ import pe.edu.ulima.itlab.memoriagame.presentation.component.Header
 import pe.edu.ulima.itlab.memoriagame.presentation.component.SettingsForm
 
 @Composable
-fun SettingsScreen() {
+fun SettingsScreen(
+    onNavigateToBoard : (numRows: Int, numCols: Int) -> Unit
+) {
     // Variable de estado
     val numRows = remember {
         mutableStateOf("")
@@ -31,6 +33,14 @@ fun SettingsScreen() {
             },
             onGuardarClick = {
                 // Cambiar a nueva pantalla
+                if (numRows.value != "" &&
+                        numCols.value != "") {
+                    onNavigateToBoard(
+                        numRows.value.toInt(),
+                        numCols.value.toInt()
+                    )
+                }
+
             }
         )
     }
