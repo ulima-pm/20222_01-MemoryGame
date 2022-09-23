@@ -32,7 +32,7 @@ class MainActivity : AppCompatActivity() {
             val data = board.getValue(row, col)
             if (data != null) {
                 (view as Button).text =
-                    String(Character.toChars(data.emoji.emojiValue))
+                    String(Character.toChars(data.value.emoji.emojiValue))
             }
 
             Log.i("MainActivity", "Se hizo click: $viewIdStr")

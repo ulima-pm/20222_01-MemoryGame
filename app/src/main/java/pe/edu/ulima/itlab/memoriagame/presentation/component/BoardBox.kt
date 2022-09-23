@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
@@ -16,16 +17,11 @@ fun BoardBox(
     row : Int,
     col : Int,
     modifier : Modifier,
-    boxData : BoxData,
+    boxData : MutableState<BoxData>,
     onClick : (Int, Int) -> Unit
 ) {
-    var isShown = remember {
-        mutableStateOf(false)
-    }
-
     Button(
         onClick = {
-            isShown.value = true
             onClick(row, col)
         },
         modifier = modifier.padding(
@@ -33,13 +29,13 @@ fun BoardBox(
             end = 8.dp
         )
     ) {
-        if (!isShown.value) {
+        if (!boxData.value.isShown) {
             Text(text = "PM")
         }else {
             Text(
                 text = String(
                     Character.toChars(
-                        boxData.emoji.emojiValue
+                        boxData.value.emoji.emojiValue
                     )
                 )
             )

@@ -2,6 +2,7 @@ package pe.edu.ulima.itlab.memoriagame.presentation.component
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -12,7 +13,7 @@ fun BoardRow(
     numCols : Int,
     row : Int,
     modifier : Modifier,
-    listBoxData : Array<BoxData>,
+    listBoxData : Array<MutableState<BoxData>>,
     onClick : (Int, Int) -> Unit
 ) {
     Row(

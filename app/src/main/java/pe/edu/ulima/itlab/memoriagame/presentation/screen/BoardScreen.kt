@@ -17,17 +17,18 @@ fun BoardScreen(
     numCols : Int,
     numRows : Int
 ) {
-    var board = pe.edu.ulima.itlab.memoriagame.model.Board(
-        numRows = numRows,
-        numCols = numCols
-    )
+    // Variable de estado
+    val board = remember {
+        mutableStateOf(pe.edu.ulima.itlab.memoriagame.model.Board(
+            numRows = numRows,
+            numCols = numCols
+        ))
+    }
 
     val boxOnClick : (Int, Int) -> Unit = { row, col ->
         Log.i("BoardScreen", "($row,$col")
-        board = pe.edu.ulima.itlab.memoriagame.model.Board(
-            numRows = numRows,
-            numCols = numCols
-        )
+        board.value.rows[row][col].value =
+            board.value.rows[row][col].value.copy(isShown = true)
     }
 
 
@@ -38,7 +39,7 @@ fun BoardScreen(
         Board(
             numRows = numRows,
             numCols = numCols,
-            rowsData = board.rows,
+            rowsData = board.value.rows,
             boxOnClick
         )
     }
