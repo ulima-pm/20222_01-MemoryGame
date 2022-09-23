@@ -17,13 +17,17 @@ fun BoardScreen(
     numCols : Int,
     numRows : Int
 ) {
-    val board = pe.edu.ulima.itlab.memoriagame.model.Board(
+    var board = pe.edu.ulima.itlab.memoriagame.model.Board(
         numRows = numRows,
         numCols = numCols
     )
 
     val boxOnClick : (Int, Int) -> Unit = { row, col ->
         Log.i("BoardScreen", "($row,$col")
+        board = pe.edu.ulima.itlab.memoriagame.model.Board(
+            numRows = numRows,
+            numCols = numCols
+        )
     }
 
 
