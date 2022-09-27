@@ -12,6 +12,10 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val nombre = intent.getStringExtra("NOMBRE")
+        Log.i("MainActivity", nombre!!)
+
+
         val board = Board(2, 2)
 
         val but0_0 = findViewById<Button>(R.id.but0_0)
@@ -43,5 +47,20 @@ class MainActivity : AppCompatActivity() {
         but1_0.setOnClickListener(boxOnClickListener)
         but1_1.setOnClickListener(boxOnClickListener)
 
+    }
+
+    override fun onStart() {
+        super.onStart()
+        //***
+    }
+
+    override fun onResume() {
+        super.onResume()
+
+    }
+
+    override fun onPause() {
+        super.onPause()
+        //*
     }
 }

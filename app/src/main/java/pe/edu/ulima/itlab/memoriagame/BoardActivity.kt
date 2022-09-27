@@ -1,6 +1,7 @@
 package pe.edu.ulima.itlab.memoriagame
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.*
@@ -20,6 +21,10 @@ import pe.edu.ulima.itlab.memoriagame.ui.theme.MemoriaGameTheme
 class BoardActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
+        val nombre = intent.getStringExtra("NOMBRE")
+        Log.i("BoardActivity", nombre!!)
+
         setContent {
             MainNavScreen()
         }
